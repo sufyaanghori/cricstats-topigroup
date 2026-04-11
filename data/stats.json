@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-04-11T19:13:28.947575+00:00",
+  "most_runs": [
+    {
+      "player": "Sufyaan",
+      "total_runs": 88,
+      "innings": 3,
+      "average": 44.0
+    },
+    {
+      "player": "Farrukh",
+      "total_runs": 58,
+      "innings": 3,
+      "average": 29.0
+    },
+    {
+      "player": "Sarosh",
+      "total_runs": 56,
+      "innings": 3,
+      "average": 28.0
+    },
+    {
+      "player": "Ali",
+      "total_runs": 17,
+      "innings": 3,
+      "average": 5.666666667
+    },
+    {
+      "player": "Mohid",
+      "total_runs": 14,
+      "innings": 3,
+      "average": 4.666666667
+    }
+  ],
+  "most_wickets": [
+    {
+      "player": "Ali",
+      "total_wickets": 4,
+      "innings": 3
+    },
+    {
+      "player": "Farrukh",
+      "total_wickets": 3,
+      "innings": 3
+    },
+    {
+      "player": "Mohid",
+      "total_wickets": 2,
+      "innings": 3
+    },
+    {
+      "player": "Sufyaan",
+      "total_wickets": 2,
+      "innings": 3
+    },
+    {
+      "player": "Sarosh",
+      "total_wickets": 1,
+      "innings": 3
+    }
+  ]
+}
