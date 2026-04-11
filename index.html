@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topi Group — Cricket Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scanline"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-icon">🏏</span>
+        <div>
+          <div class="logo-title">TOPI GROUP</div>
+          <div class="logo-sub">CRICKET ANALYTICS</div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="live-badge"><span class="dot"></span>LIVE STATS</div>
+        <div id="last-updated" class="last-updated">—</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">BATTING</div>
+        <h2 class="section-title">Most Runs</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="table-wrap" id="runs-wrap">
+        <div class="loading">Loading…</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">BOWLING</div>
+        <h2 class="section-title">Most Wickets</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="table-wrap" id="wickets-wrap">
+        <div class="loading">Loading…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>TOPI GROUP CRICKET · SEASON 2026</span>
+    <span class="footer-sep">|</span>
+    <span>Data updated after every match</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
