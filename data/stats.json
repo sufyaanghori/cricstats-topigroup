@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-11T20:11:05.636979+00:00",
+  "generated_at": "2026-04-12T09:54:20.313082+00:00",
   "most_runs": [
     {
       "player": "Sufyaan",
@@ -30,6 +30,12 @@
       "total_runs": 14,
       "innings": 3,
       "average": 4.666666667
+    },
+    {
+      "player": "Danyal ",
+      "total_runs": 0,
+      "innings": 0,
+      "average": null
     }
   ],
   "most_wickets": [
@@ -57,6 +63,11 @@
       "player": "Sarosh",
       "total_wickets": 1,
       "innings": 3
+    },
+    {
+      "player": "Danyal ",
+      "total_wickets": 0,
+      "innings": 0
     }
   ]
 }
