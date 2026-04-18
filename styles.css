@@ -231,26 +231,20 @@ thead th {
 thead th:not(:first-child) { text-align: right; }
 
 /* ── Column widths ── */
-/* Each table sizes itself to content, never stretches full width */
-table {
-  table-layout: auto;
-  width: 100%;
-}
+/* Both tables use fixed layout, full width, with explicit column sizes */
+table { table-layout: fixed; width: 100%; }
 
-thead th:nth-child(1) { width: 3.5rem; }
+/* RNK — same for both */
+th:nth-child(1), td:nth-child(1) { width: 3.5rem; }
 
-/* Stat columns: fixed so they don't grow */
-.runs-table th:nth-child(3),
-.runs-table td:nth-child(3),
-.runs-table th:nth-child(4),
-.runs-table td:nth-child(4),
-.runs-table th:nth-child(5),
-.runs-table td:nth-child(5) { width: 6.5rem; }
+/* Runs table: RNK(3.5rem) | Player(auto) | Runs(6rem) | Innings(6rem) | Avg(6rem) */
+.runs-table th:nth-child(3), .runs-table td:nth-child(3),
+.runs-table th:nth-child(4), .runs-table td:nth-child(4),
+.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 6rem; }
 
-.wickets-table th:nth-child(3),
-.wickets-table td:nth-child(3),
-.wickets-table th:nth-child(4),
-.wickets-table td:nth-child(4) { width: 6.5rem; }
+/* Wickets table: RNK(3.5rem) | Player(auto) | Wickets(7rem) | Innings(6rem) */
+.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 7rem; }
+.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 6rem; }
 
 tbody tr {
   border-bottom: 1px solid rgba(30,45,61,.6);
@@ -380,7 +374,7 @@ footer {
   }
 
   .runs-table { min-width: 480px; }
-  .wickets-table { min-width: 360px; }
+  .wickets-table { min-width: 320px; }
 
   thead th, tbody td { padding: .65rem .75rem; }
 
