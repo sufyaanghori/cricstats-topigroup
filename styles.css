@@ -1,0 +1,478 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #090c10;
+  --surface:   #0e1318;
+  --surface2:  #141b22;
+  --border:    #1e2d3d;
+  --accent:    #00e5a0;
+  --accent2:   #f5a623;
+  --text:      #e8edf2;
+  --muted:     #5a7080;
+  --rank-gold: #f5a623;
+  --rank-silv: #9eb3c2;
+  --rank-brnz: #c87941;
+  --font-head: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ── Scanline overlay ── */
+.scanline {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0,0,0,.08) 3px,
+    rgba(0,0,0,.08) 4px
+  );
+  z-index: 999;
+  opacity: .35;
+}
+
+/* ── Grid background ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,229,160,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,160,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 0;
+}
+
+/* ── Header ── */
+header {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--border);
+  background: rgba(9,12,16,.9);
+  backdrop-filter: blur(12px);
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 0;
+  gap: 1rem;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.logo-icon { font-size: 2rem; }
+
+.logo-title {
+  font-family: var(--font-head);
+  font-size: 1.7rem;
+  letter-spacing: .12em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.logo-sub {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .35em;
+  color: var(--accent);
+  margin-top: .2rem;
+}
+
+.header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .35rem;
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  color: var(--accent);
+  background: rgba(0,229,160,.08);
+  border: 1px solid rgba(0,229,160,.25);
+  padding: .25rem .65rem;
+  border-radius: 2px;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .4; transform: scale(.7); }
+}
+
+.last-updated {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  color: var(--muted);
+  letter-spacing: .05em;
+}
+
+/* ── Main layout ── */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* ── Section ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .3em;
+  color: var(--accent2);
+  background: rgba(245,166,35,.1);
+  border: 1px solid rgba(245,166,35,.25);
+  padding: .25rem .6rem;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: .06em;
+  color: var(--text);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ── Table wrapper ── */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.table-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent 60%);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(.8rem, 2vw, .92rem);
+}
+
+thead tr {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+thead th {
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  padding: .85rem .75rem;
+  text-align: left;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+thead th:not(:first-child) { text-align: right; }
+
+/* ── Column widths ── */
+/* Both tables use fixed layout, full width, with explicit column sizes */
+table { table-layout: fixed; width: 100%; }
+
+/* RNK — same for both */
+th:nth-child(1), td:nth-child(1) { width: 3.5rem; }
+
+/* Player column */
+.runs-table th:nth-child(2), .runs-table td:nth-child(2) { width: 6rem; }
+.wickets-table th:nth-child(2), .wickets-table td:nth-child(2) { width: 6rem; }
+
+/* Runs table: Runs | Innings visible, Average partially peeking */
+.runs-table th:nth-child(3), .runs-table td:nth-child(3) { width: 5.5rem; }
+.runs-table th:nth-child(4), .runs-table td:nth-child(4) { width: 5rem; }
+.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 5.5rem; }
+
+/* Wickets table stat columns */
+.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 6.5rem; }
+.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 5rem; }
+
+tbody tr {
+  border-bottom: 1px solid rgba(30,45,61,.6);
+  transition: background .18s;
+  animation: fadeRow .4s ease both;
+}
+
+@keyframes fadeRow {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr:nth-child(1) { animation-delay: .05s; }
+tbody tr:nth-child(2) { animation-delay: .10s; }
+tbody tr:nth-child(3) { animation-delay: .15s; }
+tbody tr:nth-child(4) { animation-delay: .20s; }
+tbody tr:nth-child(5) { animation-delay: .25s; }
+
+tbody tr:last-child { border-bottom: none; }
+
+tbody tr:hover { background: rgba(0,229,160,.04); }
+
+tbody td {
+  padding: 1rem .75rem;
+  vertical-align: middle;
+}
+
+tbody td:not(:first-child):not(.name-cell) { text-align: right; }
+
+/* ── Rank column ── */
+.rank-cell {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  color: var(--muted);
+  width: 3rem;
+  text-align: center !important;
+}
+
+.rank-1 { color: var(--rank-gold); font-weight: 700; }
+.rank-2 { color: var(--rank-silv); }
+.rank-3 { color: var(--rank-brnz); }
+
+/* ── Name cell ── */
+.name-cell {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  white-space: nowrap;
+}
+
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+/* ── Stat cells ── */
+.stat-cell {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.stat-highlight {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.05em;
+}
+
+/* ── Bar styles removed ── */
+
+/* ── Avg cell ── */
+.avg-cell {
+  font-family: var(--font-mono);
+  font-size: .88rem;
+}
+
+/* ── Loading & error ── */
+.loading, .error {
+  padding: 2.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  letter-spacing: .1em;
+}
+
+.loading { color: var(--muted); animation: blink 1.2s step-end infinite; }
+.error   { color: #ff5555; }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+/* ── Footer ── */
+footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 1.2rem clamp(1rem, 4vw, 3rem);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .18em;
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-sep { color: var(--border); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  /* Runs table: scroll to reveal Average */
+  #runs-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Wickets table: no scroll, fits on screen */
+  #wickets-wrap {
+    overflow-x: hidden;
+  }
+
+  thead th, tbody td { padding: .55rem .4rem; font-size: .75rem; }
+
+  .name-cell { font-size: .85rem; gap: .5rem; }
+
+  .avatar { width: 22px; height: 22px; font-size: .55rem; }
+  .name-cell { gap: .35rem; }
+
+  .bar-track { max-width: 55px; }
+  .bar-num   { font-size: .82rem; }
+
+  .rank-cell { width: 2rem; font-size: .75rem; }
+
+  .section-title { font-size: 1.8rem; }
+}
+
+/* ── Fetch button ── */
+.fetch-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .12em;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  padding: .45rem 1rem;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity .2s, transform .1s;
+  white-space: nowrap;
+}
+
+.fetch-btn:hover  { opacity: .88; }
+.fetch-btn:active { transform: scale(.97); }
+
+.fetch-btn.loading {
+  opacity: .7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-icon {
+  font-size: .9rem;
+  line-height: 1;
+  display: inline-block;
+  transition: transform .4s;
+}
+
+.fetch-btn:hover .btn-icon { transform: rotate(180deg); }
+
+.btn-spinner {
+  width: 10px; height: 10px;
+  border: 2px solid rgba(0,0,0,.3);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  padding: .65rem 1.4rem;
+  border-radius: 3px;
+  opacity: 0;
+  transition: transform .3s ease, opacity .3s ease;
+  z-index: 1000;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+  color: #ff5555;
+  border-color: rgba(255,85,85,.3);
+}
