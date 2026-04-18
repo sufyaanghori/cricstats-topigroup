@@ -231,12 +231,11 @@ thead th {
 thead th:not(:first-child) { text-align: right; }
 
 /* ── Column widths ── */
-table { table-layout: fixed; }
-thead th:nth-child(1) { width: 3.5rem; }   /* RNK */
-thead th:nth-child(2) { width: auto; }      /* Player - takes remaining space */
+table { table-layout: auto; width: 100%; }
+thead th:nth-child(1) { width: 3.5rem; }
 thead th:nth-child(3),
 thead th:nth-child(4),
-thead th:nth-child(5) { width: 6rem; }      /* stat columns */
+thead th:nth-child(5) { width: 7rem; }
 
 tbody tr {
   border-bottom: 1px solid rgba(30,45,61,.6);
@@ -287,6 +286,7 @@ tbody td:not(:first-child):not(.name-cell) { text-align: right; }
   display: flex;
   align-items: center;
   gap: .75rem;
+  white-space: nowrap;
 }
 
 .avatar {
