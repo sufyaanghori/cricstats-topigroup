@@ -72,7 +72,7 @@
         <td class="avg-cell">${fmt(r.average, 2)}</td>
       </tr>`).join("");
     container.innerHTML = `<table class="runs-table">
-      <thead><tr><th>RNK</th><th>Player</th><th>Total Runs</th><th>Innings</th><th>Average</th></tr></thead>
+      <thead><tr><th>RNK</th><th>Player</th><th>Runs</th><th>Innings</th><th>Average</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
   }
 
@@ -86,7 +86,7 @@
         <td class="stat-cell">${fmt(r.innings)}</td>
       </tr>`).join("");
     container.innerHTML = `<table class="wickets-table">
-      <thead><tr><th>RNK</th><th>Player</th><th>Total Wickets</th><th>Innings</th></tr></thead>
+      <thead><tr><th>RNK</th><th>Player</th><th>Wickets</th><th>Innings</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
   }
 
