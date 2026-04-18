@@ -3,10 +3,12 @@ name: Generate Stats & Deploy
 on:
   push:
     branches: [main]
-  workflow_dispatch:        # allows manual trigger from GitHub UI
+  schedule:
+    - cron: "0 * * * *"   # runs every hour automatically
+  workflow_dispatch:       # allows manual trigger from GitHub UI
 
 permissions:
-  contents: write           # needed to push data/stats.json back
+  contents: write
   pages: write
   id-token: write
 
@@ -15,25 +17,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out the repo
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # 3. Install dependencies
       - name: Install Python deps
-        run: pip install pandas openpyxl
+        run: pip install pandas
 
-      # 4. Run the converter — produces data/stats.json
-      - name: Generate stats.json
+      - name: Fetch stats from Google Sheets → generate stats.json
         run: python generate_stats.py
 
-      # 5. Commit stats.json so it's served by Pages
       - name: Commit generated data
         run: |
           git config user.name  "github-actions[bot]"
@@ -42,7 +39,6 @@ jobs:
           git diff --cached --quiet || git commit -m "chore: refresh stats.json [skip ci]"
           git push
 
-      # 6. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
