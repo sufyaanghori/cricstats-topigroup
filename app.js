@@ -67,7 +67,7 @@
       <tr style="animation-delay:${0.05+i*0.05}s">
         <td class="rank-cell ${rankClass(i)}">${rankIcon(i)}</td>
         <td><div class="name-cell"><div class="avatar">${initials(r.player)}</div>${r.player}</div></td>
-        <td class="bar-cell">${barHtml(r.total_runs, maxRuns)}</td>
+        <td class="stat-cell">${fmt(r.total_runs)}</td>
         <td class="stat-cell">${fmt(r.innings)}</td>
         <td class="avg-cell">${fmt(r.average, 2)}</td>
       </tr>`).join("");
@@ -82,7 +82,7 @@
       <tr style="animation-delay:${0.05+i*0.05}s">
         <td class="rank-cell ${rankClass(i)}">${rankIcon(i)}</td>
         <td><div class="name-cell"><div class="avatar">${initials(r.player)}</div>${r.player}</div></td>
-        <td class="bar-cell">${barHtml(r.total_wickets, maxWkts, true)}</td>
+        <td class="stat-cell">${fmt(r.total_wickets)}</td>
         <td class="stat-cell">${fmt(r.innings)}</td>
       </tr>`).join("");
     container.innerHTML = `<table>
