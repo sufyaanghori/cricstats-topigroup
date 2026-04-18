@@ -46,7 +46,7 @@
   function csvToRuns(rows) {
     return rows.filter(r => r["Player"] && r["Player"].trim()).map(r => ({
       player:     r["Player"].trim(),
-      total_runs: Number(r["Total Runs"]) || 0,
+      total_runs: Number(r["Runs"]) || 0,
       innings:    Number(r["Innings"])    || 0,
       average:    parseFloat(r["Average"]) || 0,
     }));
@@ -55,7 +55,7 @@
   function csvToWickets(rows) {
     return rows.filter(r => r["Player"] && r["Player"].trim()).map(r => ({
       player:        r["Player"].trim(),
-      total_wickets: Number(r["Total Wickets"]) || 0,
+      total_wickets: Number(r["Wickets"]) || 0,
       innings:       Number(r["Innings"])        || 0,
     }));
   }

@@ -237,18 +237,18 @@ table { table-layout: fixed; width: 100%; }
 /* RNK — same for both */
 th:nth-child(1), td:nth-child(1) { width: 3.5rem; }
 
-/* Player column: fixed narrow width, not auto */
-.runs-table th:nth-child(2), .runs-table td:nth-child(2) { width: 5.5rem; }
-.wickets-table th:nth-child(2), .wickets-table td:nth-child(2) { width: 5.5rem; }
+/* Player column */
+.runs-table th:nth-child(2), .runs-table td:nth-child(2) { width: 6rem; }
+.wickets-table th:nth-child(2), .wickets-table td:nth-child(2) { width: 6rem; }
 
-/* Runs table stat columns */
-.runs-table th:nth-child(3), .runs-table td:nth-child(3) { width: 5rem; }
-.runs-table th:nth-child(4), .runs-table td:nth-child(4) { width: 4rem; }
-.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 4.5rem; }
+/* Runs table: Runs | Innings visible, Average partially peeking */
+.runs-table th:nth-child(3), .runs-table td:nth-child(3) { width: 5.5rem; }
+.runs-table th:nth-child(4), .runs-table td:nth-child(4) { width: 5rem; }
+.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 5.5rem; }
 
 /* Wickets table stat columns */
-.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 6rem; }
-.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 4.5rem; }
+.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 6.5rem; }
+.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 5rem; }
 
 tbody tr {
   border-bottom: 1px solid rgba(30,45,61,.6);
@@ -372,13 +372,16 @@ footer {
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .table-wrap {
+  /* Runs table: scroll to reveal Average */
+  #runs-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  .runs-table { min-width: unset; }
-  .wickets-table { min-width: unset; }
+  /* Wickets table: no scroll, fits on screen */
+  #wickets-wrap {
+    overflow-x: hidden;
+  }
 
   thead th, tbody td { padding: .55rem .4rem; font-size: .75rem; }
 
