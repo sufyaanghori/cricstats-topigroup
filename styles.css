@@ -237,14 +237,14 @@ table { table-layout: fixed; width: 100%; }
 /* RNK — same for both */
 th:nth-child(1), td:nth-child(1) { width: 3.5rem; }
 
-/* Runs table: RNK(3.5rem) | Player(auto) | Runs(6rem) | Innings(6rem) | Avg(6rem) */
-.runs-table th:nth-child(3), .runs-table td:nth-child(3),
-.runs-table th:nth-child(4), .runs-table td:nth-child(4),
-.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 6rem; }
+/* Runs table: RNK(3.5rem) | Player(auto) | Runs(5rem) | Innings(4.5rem) | Avg(5rem) */
+.runs-table th:nth-child(3), .runs-table td:nth-child(3) { width: 5rem; }
+.runs-table th:nth-child(4), .runs-table td:nth-child(4) { width: 4.5rem; }
+.runs-table th:nth-child(5), .runs-table td:nth-child(5) { width: 5rem; }
 
-/* Wickets table: RNK(3.5rem) | Player(auto) | Wickets(7rem) | Innings(6rem) */
-.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 7rem; }
-.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 6rem; }
+/* Wickets table: RNK(3.5rem) | Player(auto) | Wickets(6rem) | Innings(5rem) */
+.wickets-table th:nth-child(3), .wickets-table td:nth-child(3) { width: 6rem; }
+.wickets-table th:nth-child(4), .wickets-table td:nth-child(4) { width: 5rem; }
 
 tbody tr {
   border-bottom: 1px solid rgba(30,45,61,.6);
@@ -373,10 +373,10 @@ footer {
     -webkit-overflow-scrolling: touch;
   }
 
-  .runs-table { min-width: 480px; }
-  .wickets-table { min-width: 320px; }
+  .runs-table { min-width: unset; }
+  .wickets-table { min-width: unset; }
 
-  thead th, tbody td { padding: .65rem .75rem; }
+  thead th, tbody td { padding: .55rem .4rem; font-size: .75rem; }
 
   .name-cell { font-size: .85rem; gap: .5rem; }
 
