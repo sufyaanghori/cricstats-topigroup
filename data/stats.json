@@ -1,73 +1,73 @@
 {
-  "generated_at": "2026-04-18T06:29:42.581484+00:00",
+  "generated_at": "2026-04-25T04:20:13.807782+00:00",
   "most_runs": [
     {
       "player": "Sufyaan",
-      "total_runs": 140,
-      "innings": 5,
-      "average": 46.7
-    },
-    {
-      "player": "Sarosh",
-      "total_runs": 98,
-      "innings": 5,
-      "average": 32.7
+      "total_runs": 176,
+      "innings": 7,
+      "average": 35.2
     },
     {
       "player": "Farrukh",
-      "total_runs": 58,
-      "innings": 3,
-      "average": 29.0
+      "total_runs": 147,
+      "innings": 5,
+      "average": 49.0
+    },
+    {
+      "player": "Sarosh",
+      "total_runs": 129,
+      "innings": 7,
+      "average": 25.8
     },
     {
       "player": "Ali",
-      "total_runs": 49,
-      "innings": 5,
-      "average": 9.8
+      "total_runs": 65,
+      "innings": 7,
+      "average": 9.3
     },
     {
       "player": "Mohid",
-      "total_runs": 22,
-      "innings": 5,
-      "average": 4.4
+      "total_runs": 50,
+      "innings": 7,
+      "average": 7.1
     },
     {
       "player": "Danyal ",
-      "total_runs": 4,
-      "innings": 2,
-      "average": 2.0
+      "total_runs": 22,
+      "innings": 4,
+      "average": 5.5
     }
   ],
   "most_wickets": [
     {
       "player": "Ali",
+      "total_wickets": 8,
+      "innings": 7
+    },
+    {
+      "player": "Farrukh",
       "total_wickets": 6,
       "innings": 5
     },
     {
+      "player": "Mohid",
+      "total_wickets": 6,
+      "innings": 7
+    },
+    {
       "player": "Sarosh",
-      "total_wickets": 4,
-      "innings": 5
+      "total_wickets": 5,
+      "innings": 7
     },
     {
       "player": "Sufyaan",
-      "total_wickets": 4,
-      "innings": 5
-    },
-    {
-      "player": "Farrukh",
-      "total_wickets": 3,
-      "innings": 3
-    },
-    {
-      "player": "Mohid",
-      "total_wickets": 3,
-      "innings": 5
+      "total_wickets": 5,
+      "innings": 7
     },
     {
       "player": "Danyal ",
-      "total_wickets": 0,
-      "innings": 2
+      "total_wickets": 1,
+      "innings": 4
     }
   ]
 }
